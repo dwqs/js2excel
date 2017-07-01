@@ -18,7 +18,7 @@
     "xlsx"
   ],
   "scripts": {
-    "prepush": "npm ilint",
+    "prepush": "npm run ilint",
     "ilint": "./node_modules/.bin/eslint src/**/*.js",
     "fix": "./node_modules/.bin/eslint --fix src/**/*.js",
     "build": "./node_modules/.bin/webpack --config ./webpack.config.js --progress --display-error-details",
