@@ -1,21 +1,13 @@
 {
   "name": "js2excel",
-  "main": "dist/js2excel.min.js",
+  "main": "src/js2excel.js",
   "description": "A simple module exports json data to excel",
   "authors": "pomysky@gmail.com",
   "license": "MIT",
   "ignore": [
-    "example",
-    "src",
-    ".idea",
-    "node_modules",
-    "*.js",
-    ".gitignore",
-    ".eslintrc",
-    ".babelrc",
-    "*.json",
-    "*.md",
-    "*.yml",
-    "*.lock"
+    "*",
+    "!src",
+    "!LICENSE",
+    "!README.md"
   ]
 }
