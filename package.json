@@ -4,7 +4,7 @@
   "author": "pomysky@gmail.com",
   "description": "A simple module exports json data to excel",
   "license": "MIT",
-  "main": "index.js",
+  "main": "dist/js2excel.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/dwqs/js2excel.git"
