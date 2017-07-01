@@ -5,16 +5,9 @@
   "authors": "pomysky@gmail.com",
   "license": "MIT",
   "ignore": [
-    "example",
-    ".idea",
-    "dist",
-    "*.js",
-    ".gitignore",
-    ".eslintrc",
-    ".babelrc",
-    "*.json",
-    "*.md",
-    "*.yml",
-    "*.lock"
+    "*",
+    "!src",
+    "!LICENSE",
+    "!README.md"
   ]
 }
