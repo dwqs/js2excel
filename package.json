@@ -25,6 +25,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
+    "file-saver": "^1.3.3",
     "xlsx": "^0.10.6"
   },
   "devDependencies": {
