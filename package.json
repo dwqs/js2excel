@@ -19,9 +19,9 @@
   ],
   "scripts": {
     "prepush": "npm run ilint",
-    "dev": "webpack --config ./webpack.example.config.js -w --progress --display-error-details",
     "ilint": "./node_modules/.bin/eslint src/**/*.js",
     "fix": "./node_modules/.bin/eslint --fix src/**/*.js",
+    "dev": "./node_modules/.bin/webpack --config ./webpack.example.config.js -w --progress --display-error-details",
     "build": "./node_modules/.bin/webpack --config ./webpack.config.js --progress --display-error-details",
     "prepublishOnly": "npm run build"
   },
