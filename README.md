@@ -23,8 +23,10 @@ let Toast = require('js2excel');
 // excel's header columes
 let columns = [
     {
-        name: 'User Id',
-        prop: 'userId'
+        // the name will be as the excel colume name
+        name: 'User Id', 
+        // the prop will be as the excel row data, which is the rows' item's property.
+        prop: 'userId'     
     },
     {
         name: 'Phone Number',
