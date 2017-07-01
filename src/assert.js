@@ -4,6 +4,6 @@
 
 export default function assert (condition, message) {
     if (!condition) {
-        throw new Error(`[js2excel] ${message}`);
+        throw new Error(`[js2excel] ${message} Read doc: https://github.com/dwqs/js2excel#readme`);
     }
 }

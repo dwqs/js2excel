@@ -12,10 +12,10 @@ export default function formatDataToExcel (columns, rows) {
     let data = [];
 
     assert(Array.isArray(columns),
-        `The first param is excel columns header, and it should be an array. The type you passed is ${typeof columns}`);
+        `The first param is excel columns header, and it should be an array. The type you passed is ${typeof columns}.`);
 
     assert(Array.isArray(rows),
-        `The second param is excel data, and it should be an array. The type you passed is ${typeof rows}`);
+        `The second param is excel data, and it should be an array. The type you passed is ${typeof rows}.`);
 
     if (columns.length) {
         columns.forEach(item => {
@@ -24,8 +24,7 @@ export default function formatDataToExcel (columns, rows) {
                 tHeader.push(item.name);
                 indexs.push(item.prop);
             } else {
-                assert(false,
-                    `The params you passed is illegal. Read doc: https://github.com/dwqs/js2excel#readme`);
+                assert(false, `The params you passed is illegal.`);
             }
         });
     }
