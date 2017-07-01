@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "prepush": "npm run ilint",
+    "dev": "webpack --config ./webpack.example.config.js -w --progress --display-error-details",
     "ilint": "./node_modules/.bin/eslint src/**/*.js",
     "fix": "./node_modules/.bin/eslint --fix src/**/*.js",
     "build": "./node_modules/.bin/webpack --config ./webpack.config.js --progress --display-error-details",
@@ -42,6 +43,7 @@
     "eslint-plugin-node": "^5.1.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "html-webpack-plugin": "^2.29.0",
     "husky": "^0.13.3",
     "webpack": "^3.0.0"
   },
