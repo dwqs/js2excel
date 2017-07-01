@@ -19,7 +19,7 @@ export default function formatDataToExcel (columns, rows) {
 
     if (columns.length) {
         columns.forEach(item => {
-            if (item && item.hasOwnProperty('name') && item.hasOwnProperty('prop')) {
+            if (typeof item === 'object' && item.hasOwnProperty('name') && item.hasOwnProperty('prop')) {
                 // excel columns header
                 tHeader.push(item.name);
                 indexs.push(item.prop);
