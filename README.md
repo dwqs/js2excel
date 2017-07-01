@@ -5,6 +5,7 @@ A simple module exports json data to excel, which works in the browser.
 
 ```
 npm install js2excel --save
+bower install js2excel
 ```
 
 ## Usage
