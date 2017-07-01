@@ -15,7 +15,9 @@ import js2excel from 'js2excel';
 //CommonJS
 let Toast = require('js2excel');
 
-// excel's data
+/**
+ * excel's data
+ **/
 
 // excel's header columes
 let columns = [
