@@ -1,0 +1,46 @@
+{
+  "name": "js2excel",
+  "version": "0.0.1",
+  "author": "pomysky@gmail.com",
+  "description": "A simple module exports json data to excel",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dwqs/js2excel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dwqs/js2excel/issues"
+  },
+  "keywords": [
+    "json",
+    "excel",
+    "xlsx"
+  ],
+  "scripts": {
+    "prepush": "npm ilint",
+    "ilint": "./node_modules/.bin/eslint src/**/*.js",
+    "fix": "./node_modules/.bin/eslint --fix src/**/*.js",
+    "build": "./node_modules/.bin/webpack --config ./webpack.config.js --progress --display-error-details",
+  },
+  "dependencies": {
+    "xlsx": "^0.10.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "babel-runtime": "^6.20.0",
+    "eslint": "^3.13.0",
+    "husky": "^0.13.3",
+    "webpack": "^3.0.0"
+  },
+  "homepage": "https://github.com/dwqs/js2excel#readme",
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 4.0.0"
+  }
+}
