@@ -1,6 +1,6 @@
 {
   "name": "js2excel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "pomysky@gmail.com",
   "description": "A simple module exports json data to excel",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "ilint": "./node_modules/.bin/eslint src/**/*.js",
     "fix": "./node_modules/.bin/eslint --fix src/**/*.js",
     "build": "./node_modules/.bin/webpack --config ./webpack.config.js --progress --display-error-details",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "file-saver": "^1.3.3",
