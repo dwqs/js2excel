@@ -3,7 +3,7 @@
  */
 
 export default function assert (condition, message) {
-    if(!condition) {
-        throw new Error(`[js2excel] ${message}`)
+    if (!condition) {
+        throw new Error(`[js2excel] ${message}`);
     }
 }
