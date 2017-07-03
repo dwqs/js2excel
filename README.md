@@ -63,7 +63,7 @@ let rows = [
 js2excel(columns, rows, 'user-info-data');
 
 // for webpack 3: dynamic import
-import(/* webpackChunkName: "export2excel" */ 'js2excel').then((js2excel) => {
+import(/* webpackChunkName: "js2excel" */ 'js2excel').then(({default: js2excel}) => {
     js2excel(columns, rows, 'user-info-data');
 }).catch((e) => {
 
