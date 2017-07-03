@@ -43,5 +43,9 @@ let rows = [
 ];
 
 btn.addEventListener('click', () => {
-    js2excel(columns, rows, 'user-info-data');
+    try{
+        js2excel(columns, rows, 'user-info-data');
+    } catch (e) {
+        console.error('export error', e.message);
+    }
 }, false);
