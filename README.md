@@ -60,7 +60,11 @@ let rows = [
 
 // this will be export a excel and the file's name is user-info-data.xlsx
 // the default file's name is excel.xlsx
-js2excel(columns, rows, 'user-info-data');
+try {
+    js2excel(columns, rows, 'user-info-data');
+} catch (e) {
+    console.error('export error');
+}
 
 // for webpack 3: dynamic import
 import(/* webpackChunkName: "js2excel" */ 'js2excel').then(({default: js2excel}) => {
