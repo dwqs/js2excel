@@ -1,0 +1,39 @@
+{
+  "extends": "tslint:recommended",
+  "enable": true,
+  "jsEnable": true,
+  "rules": {
+    "max-line-length": [true, 120],
+    "indent": [true, "tabs", 4],
+    "interface-name": [true, "never-prefix"],
+    "jsdoc-format": false,
+    "no-consecutive-blank-lines": false,
+    "no-console": [false],
+		"no-duplicate-variable": true,
+		"semicolon": ["always"],
+		"triple-equals": [true, "allow-null-check"],
+    "comment-format": [true, "check-space"],
+    "no-trailing-whitespace": false,
+    "align": [false],
+    "eofline": false,
+    "max-classes-per-file": [true, 5],
+    "no-unused-variable": true,
+    "quotemark": [true, "single", "avoid-template", "avoid-escape"]
+  },
+  "jsRules": {
+    "max-line-length": [true, 120],
+    "indent": [true, "tabs", 4],
+    "comment-format": [true, "check-space"],
+    "no-console": [false],
+		"no-duplicate-variable": true,
+		"semicolon": ["always"],
+		"triple-equals": [true, "allow-null-check"],
+    "jsdoc-format": false,
+    "no-trailing-whitespace": false,
+    "align": [false],
+    "eofline": false,
+    "max-classes-per-file": [true, 5],
+    "no-unused-variable": true,
+    "quotemark": [true, "single", "avoid-template", "avoid-escape"]
+  }
+}
