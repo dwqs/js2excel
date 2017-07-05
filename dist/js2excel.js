@@ -33713,19 +33713,13 @@ function assert(condition, message) {
     }
 }
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-  return typeof obj;
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-};
-
 function formatDataToExcel(columns, rows) {
     var tHeader = [];
     var indexs = [];
     var data = [];
     if (columns.length) {
         columns.forEach(function (item) {
-            if ((typeof item === 'undefined' ? 'undefined' : _typeof(item)) === 'object' && item.hasOwnProperty('name') && item.hasOwnProperty('prop')) {
+            if (item.hasOwnProperty && item.hasOwnProperty('name') && item.hasOwnProperty('prop')) {
                 tHeader.push(item.name);
                 indexs.push(item.prop);
             } else {

@@ -9,7 +9,7 @@ export default function formatDataToExcel<T>(columns: T[], rows: T[]): T[] {
 
     if (columns.length) {
         columns.forEach((item: any) => {
-            if (typeof item === 'object' && item.hasOwnProperty('name') && item.hasOwnProperty('prop')) {
+            if (item.hasOwnProperty && item.hasOwnProperty('name') && item.hasOwnProperty('prop')) {
                 // excel columns header
                 tHeader.push(item.name);
                 indexs.push(item.prop);
