@@ -2,7 +2,7 @@ import FileSaver from 'file-saver';
 import XLSX from 'xlsx';
 
 import formatDataToExcel from './formate-data';
-import WorkBook from './work-book';
+import IWorkBook from './work-book';
 
 function s2ab(s: string) {
     const buf = new ArrayBuffer(s.length);
@@ -118,7 +118,7 @@ export default function js2excel(tHeaderColumns: any[], tableData: any[], fileNa
 	fileNames.push(fileName);
 	sheets[fileName] = ws;
 
-    const wb = new WorkBook(fileNames, sheets);
+    const wb = new IWorkBook(fileNames, sheets);
     
     const wbout = XLSX.write(wb, { bookType: 'xlsx', bookSST: true, type: 'binary' });
 
