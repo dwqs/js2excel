@@ -1,5 +1,7 @@
 import assert from './assert';
 
+// 将数据转成成数组的形式用于导出Excel
+// converted data into an array to export Excel
 export default function formatDataToExcel<T>(columns: T[], rows: T[]): T[] {
     const tHeader: any[] = [];
     const indexs: any[] = [];
@@ -17,6 +19,7 @@ export default function formatDataToExcel<T>(columns: T[], rows: T[]): T[] {
         });
     }
 
+    // excel data
     if (rows.length) {
         data = rows.map((item) => indexs.map((index) => item[index]));
     }
