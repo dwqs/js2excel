@@ -9,6 +9,8 @@ npm-debug.log
 .gitignore
 *.js
 .babelrc
+.npmrc
 .editorconfig
-*.json
+tslint.json
+bower.json
 lib
