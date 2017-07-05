@@ -9,10 +9,10 @@ import babel from 'rollup-plugin-babel';
 import uglify from 'rollup-plugin-uglify';
 
 export default {
-    entry: 'src/test.ts',
+    entry: 'index.ts',
     format: 'umd',
-    moduleName: 'test',
-    dest: 'dist/test.min.js',
+    moduleName: 'js2excel',
+    dest: 'dist/js2excel.min.js',
     plugins: [
         resolve({
             customResolveOptions: 'node_modules',
