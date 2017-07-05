@@ -2,14 +2,14 @@
  * Created by pomy on 02/07/2017.
  */
 
-interface Sheets {
-	fileName: any,
-	sheetNames: string[]
-}
+class WorkBook {	
+	public SheetNames: string[];
+	public Sheets: any;
 
-export default class WorkBook implements Sheets {	
-	constructor(public sheetNames: string[], public fileName: any) {
-		this.sheetNames = sheetNames;
-		this.fileName = fileName;
+	constructor(public sheetNames: string[], public sheets: any) {
+		this.SheetNames = sheetNames;
+		this.Sheets = sheets;
 	}
 }
+
+export default WorkBook;
