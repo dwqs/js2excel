@@ -13,7 +13,7 @@ export default {
     entry: 'src/index.ts',
     format: 'umd',
     moduleName: 'js2excel',
-    dest: 'dist/js2excel.min.js',
+    dest: 'dist/js2excel.js',
     plugins: [
         builtins(),
         resolve({
