@@ -85,7 +85,6 @@ function sheetFromArrayOfArrays(data: any[], opts?: any) {
                 cell.t = 'n';
 				// xlsx dosen't declare SSF type in index.d.ts.
                 // cell.z =  XLSX.SSF._table[14];
-				// s
 				cell.z = 'm/d/yy';
                 cell.v = dateNum(cell.v);
             } else {
