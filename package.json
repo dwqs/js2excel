@@ -19,11 +19,11 @@
     "xlsx"
   ],
   "scripts": {
-    "clean": "rm -rf dist typings types",
+    "clean": "rm -rf dist typings example/dist types",
     "dev": "./node_modules/.bin/webpack --config ./webpack.example.config.js -w --progress --display-error-details",
     "prepush": "npm run lint",
-    "prebuild": "npm run prepush && ./node_modules/.bin/tsc -p ./tsconfig.typings.json && rm -rf dist",
-    "build": "./node_modules/.bin/rollup -c",
+    "prebuild": "npm run prepush && ./node_modules/.bin/tsc -p ./tsconfig.typings.json",
+    "build": "./node_modules/.bin/rollup -c && ./node_modules/.bin/rollup -c rollup.build.config.js",
     "postbuild": "mkdir types && mv typings/index.d.ts types/ && rm -rf typings",
     "lint": "./node_modules/.bin/tslint -p ./tsconfig.json --type-check src/**/*.ts",
     "fix": "./node_modules/.bin/tslint -p ./tsconfig.json --type-check --fix src/**/*.ts",

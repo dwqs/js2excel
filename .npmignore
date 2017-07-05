@@ -11,3 +11,4 @@ npm-debug.log
 .babelrc
 .editorconfig
 *.json
+lib
