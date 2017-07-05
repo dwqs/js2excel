@@ -20,7 +20,8 @@
     "no-unused-variable": true,
     "quotemark": [true, "single", "avoid-escape"],
     "prefer-const": false,
-    "no-bitwise": false
+    "no-bitwise": false,
+    "object-literal-sort-keys":false
   },
   "jsRules": {
     "max-line-length": [true, 120],
@@ -38,6 +39,7 @@
     "no-unused-variable": true,
     "quotemark": [true, "single", "avoid-escape"],
     "prefer-const": false,
-    "no-bitwise": false
+    "no-bitwise": false,
+    "object-literal-sort-keys":false
   }
 }

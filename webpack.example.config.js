@@ -6,6 +6,7 @@
 
 let path = require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
+let { CheckerPlugin } = require('awesome-typescript-loader')
 
 module.exports = {
     context: path.resolve(__dirname, "example"),
@@ -22,12 +23,17 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
+            },
+            {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                loader: "awesome-typescript-loader"
             }
         ]
     },
 
     resolve:{
-        extensions:[".js"],
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },
 
     resolveLoader: {
@@ -39,6 +45,7 @@ module.exports = {
     },
 
     plugins:[
+        new CheckerPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'index.html',
