@@ -19,10 +19,15 @@ export default {
             customResolveOptions: 'node_modules',
             jsnext: true
         }),
-        commonjs(),
+        commonjs({
+            namedExports: {
+                'node_modules/xlsx/xlsx.js': ['utils', 'write']
+            }
+        }),
         typescript(),
         babel({
-            exclude: 'node_modules/**'
+            exclude: 'node_modules/**',
+            externalHelpers: true
         })
     ]
 }

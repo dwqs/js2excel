@@ -33707,6 +33707,9 @@ var XLS = XLSX;
 var ODS = XLSX;
 });
 
+var xlsx_1 = xlsx.utils;
+var xlsx_2 = xlsx.write;
+
 function assert(condition, message) {
     if (!condition) {
         throw new Error("[js2excel] " + message + " Read doc: https://github.com/dwqs/js2excel#readme");
@@ -33796,7 +33799,7 @@ function sheetFromArrayOfArrays(data, opts) {
             if (cell.v === null) {
                 continue;
             }
-            var cellRef = undefined({ c: C, r: R });
+            var cellRef = xlsx_1.encode_cell({ c: C, r: R });
             if (typeof cell.v === 'number') {
                 cell.t = 'n';
             } else if (typeof cell.v === 'boolean') {
@@ -33812,7 +33815,7 @@ function sheetFromArrayOfArrays(data, opts) {
         }
     }
     if (range.s.c < 10000000) {
-        ws['!ref'] = undefined(range);
+        ws['!ref'] = xlsx_1.encode_range(range);
     }
     return ws;
 }
@@ -33827,7 +33830,7 @@ function js2excel(tHeaderColumns, tableData, fileName) {
     fileNames.push(fileName);
     sheets[fileName] = ws;
     var wb = new IWorkBook(fileNames, sheets);
-    var wbout = undefined(wb, { bookType: 'xlsx', bookSST: true, type: 'binary' });
+    var wbout = xlsx_2(wb, { bookType: 'xlsx', bookSST: true, type: 'binary' });
     FileSaver_1(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }), fileName + '.xlsx');
 }
 
