@@ -4,7 +4,7 @@
   "jsEnable": true,
   "rules": {
     "max-line-length": [true, 120],
-    "indent": [true, "tabs", 4],
+    "indent": [true, "indent", 4],
     "interface-name": [true, "never-prefix"],
     "jsdoc-format": false,
     "no-consecutive-blank-lines": false,
@@ -22,7 +22,7 @@
   },
   "jsRules": {
     "max-line-length": [true, 120],
-    "indent": [true, "tabs", 4],
+    "indent": [true, "indent", 4],
     "comment-format": [true, "check-space"],
     "no-console": [false],
     "no-duplicate-variable": true,
