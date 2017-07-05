@@ -1,0 +1,13 @@
+{
+  "name": "js2excel",
+  "main": "dist/index.js",
+  "description": "A simple module exports json data to excel",
+  "authors": "pomysky@gmail.com",
+  "license": "MIT",
+  "ignore": [
+    "*",
+    "!src",
+    "!LICENSE",
+    "!README.md"
+  ]
+}
