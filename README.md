@@ -3,8 +3,23 @@ A simple module exports json data to excel, which works in the browser.
 
 ## Installation
 
+It is recommended to run webpack on node 6.x or higher.
+
+Install the pkg with npm:
+
 ```
 npm install js2excel --save
+```
+
+or yarn
+
+```
+yarn add js2excel
+```
+
+or bower
+
+```
 bower install js2excel
 ```
 
