@@ -18,7 +18,7 @@
     "eofline": false,
     "max-classes-per-file": [true, 5],
     "no-unused-variable": true,
-    "quotemark": [true, "single", "avoid-template", "avoid-escape"]
+    "quotemark": [true, "single", "avoid-escape"]
   },
   "jsRules": {
     "max-line-length": [true, 120],
@@ -34,6 +34,6 @@
     "eofline": false,
     "max-classes-per-file": [true, 5],
     "no-unused-variable": true,
-    "quotemark": [true, "single", "avoid-template", "avoid-escape"]
+    "quotemark": [true, "single", "avoid-escape"]
   }
 }
