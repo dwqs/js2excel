@@ -5,7 +5,7 @@
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript';
-import buble from 'rollup-plugin-buble';
+import babel from 'rollup-plugin-babel';
 import builtins from 'rollup-plugin-node-builtins';
 
 export default {
@@ -21,6 +21,8 @@ export default {
         }),
         commonjs(),
         typescript(),
-        buble()
+        babel({
+            exclude: 'node_modules/**'
+        })
     ]
 }
