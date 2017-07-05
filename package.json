@@ -4,6 +4,7 @@
   "author": "pomysky@gmail.com",
   "description": "A simple module exports json data to excel",
   "license": "MIT",
+  "private": false,
   "main": "dist/js2excel.min.js",
   "typings": "types/index.d.ts",
   "repository": {
@@ -26,8 +27,7 @@
     "build": "./node_modules/.bin/rollup -c && ./node_modules/.bin/rollup -c rollup.build.config.js",
     "postbuild": "mkdir types && mv typings/index.d.ts types/ && rm -rf typings",
     "lint": "./node_modules/.bin/tslint -p ./tsconfig.json --type-check src/**/*.ts",
-    "fix": "./node_modules/.bin/tslint -p ./tsconfig.json --type-check --fix src/**/*.ts",
-    "prepublishOnly": "npm run build"
+    "fix": "./node_modules/.bin/tslint -p ./tsconfig.json --type-check --fix src/**/*.ts"
   },
   "dependencies": {
     "file-saver": "^1.3.3",
