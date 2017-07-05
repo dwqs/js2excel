@@ -19,12 +19,12 @@
     "xlsx"
   ],
   "scripts": {
-    "clean": "rm -rf dist types",
+    "clean": "rm -rf dist typings types",
     "dev": "./node_modules/.bin/webpack --config ./webpack.example.config.js -w --progress --display-error-details",
     "prepush": "npm run lint",
-    "prebuild": "npm run prepush && ./node_modules/.bin/tsc -p ./tsconfig.types.json && rm -rf dist",
+    "prebuild": "npm run prepush && ./node_modules/.bin/tsc -p ./tsconfig.typings.json && rm -rf dist",
     "build": "./node_modules/.bin/rollup -c",
-    "postbuild": "mv types/index.d.ts dist/",
+    "postbuild": "mkdir types && mv typings/index.d.ts types/ && rm -rf typings",
     "lint": "./node_modules/.bin/tslint -p ./tsconfig.json --type-check src/**/*.ts",
     "fix": "./node_modules/.bin/tslint -p ./tsconfig.json --type-check --fix src/**/*.ts",
     "prepublishOnly": "npm run build"
@@ -48,6 +48,7 @@
     "rollup": "^0.43.0",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-typescript": "^0.8.1",
     "rollup-plugin-uglify": "^2.0.1",

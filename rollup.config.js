@@ -7,13 +7,15 @@ import resolve from 'rollup-plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript';
 import babel from 'rollup-plugin-babel';
 import uglify from 'rollup-plugin-uglify';
+import builtins from 'rollup-plugin-node-builtins';
 
 export default {
-    entry: 'index.ts',
+    entry: 'src/index.ts',
     format: 'umd',
     moduleName: 'js2excel',
     dest: 'dist/js2excel.min.js',
     plugins: [
+        builtins(),
         resolve({
             customResolveOptions: 'node_modules',
             jsnext: true

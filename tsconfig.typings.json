@@ -1,7 +1,7 @@
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
-        "declarationDir": "types",
+        "declarationDir": "typings",
         "strict": true
     }
 }
