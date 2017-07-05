@@ -1,6 +1,6 @@
 'use strict';
 
-import js2excel from '../src/js2excel';
+import js2excel from '../src/index.ts';
 
 let btn = document.getElementById('export');
 

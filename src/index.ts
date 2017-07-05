@@ -1,5 +1,5 @@
-import FileSaver from 'file-saver';
-import XLSX from 'xlsx';
+import * as FileSaver from 'file-saver';
+import * as XLSX from 'xlsx';
 
 import formatDataToExcel from './formate-data';
 import IWorkBook from './work-book';
