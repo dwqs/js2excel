@@ -1,8 +1,8 @@
 {
   "name": "js2excel",
-  "version": "0.5.3",
+  "version": "0.7.5",
   "author": "pomysky@gmail.com",
-  "description": "A simple module exports json data to excel",
+  "description": "A simple module for excel and json converts each other",
   "license": "MIT",
   "private": false,
   "main": "dist/js2excel.min.js",
