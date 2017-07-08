@@ -1,12 +1,10 @@
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
 
-import formatDataToExcel from './formate-data';
 import IWorkBook from './work-book';
 
 export interface Params {
-    headers: any[],
-    rows: any[],
+    data: any[],
     name?: string,
     // dateFormat: /[dD]+|[mM]+|[yYeE]+|[Hh]+|[Ss]+/g;
     formateDate?: string 
@@ -29,8 +27,7 @@ function s2ab(s: string) {
 // passing object directly will lead browser dead,
 // so just pass dimensional array or multiple dimensional array.
 function json2excel(opts: Params) {
-    let { headers = [], rows = [], name = 'excel', formateDate = 'dd/mm/yyyy'} = opts;
-    const data = formatDataToExcel(headers, rows);
+    let { data = [], name = 'excel', formateDate = 'dd/mm/yyyy'} = opts;
 
 	let fileNames: string[] = [];
 	let sheets = {};
