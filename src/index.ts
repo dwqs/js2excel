@@ -4,17 +4,6 @@ import * as XLSX from 'xlsx';
 import formatDataToExcel from './formate-data';
 import IWorkBook from './work-book';
 
-// function s2ab(s: string) {
-//     const buf = new ArrayBuffer(s.length);
-//     const view = new Uint8Array(buf);
-
-//     for (let i = 0; i !== s.length; ++i) {
-//         view[i] = s.charCodeAt(i) & 0xFF;
-//     }
-
-//     return buf;
-// }
-
 // function dateNum(v: any, date1904?: any) {
 //     if (date1904) {
 //         v += 1462;
@@ -112,6 +101,17 @@ interface Params {
     name?: string,
     // dateFormat: /[dD]+|[mM]+|[yYeE]+|[Hh]+|[Ss]+/g;
     formateDate?: string 
+}
+
+function s2ab(s: string) {
+    const buf = new ArrayBuffer(s.length);
+    const view = new Uint8Array(buf);
+
+    for (let i = 0; i !== s.length; ++i) {
+        view[i] = s.charCodeAt(i) & 0xFF;
+    }
+
+    return buf;
 }
 
 // 直接传递对象数据有可能导致浏览器卡死, 建议传二维数组或多维数据
