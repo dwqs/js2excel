@@ -151,25 +151,33 @@ Convert json to excel(.xlsx).
 Type: `Object`
 
 `opts.headers`
+
 Type: `Array`
+
 Default: []
 
 Excel's column's headers.
 
 `opts.rows`
+
 Type: `Array`,
+
 Default: []
 
 Excel's rows's data.
 
 `opts.name`
+
 Type: `String`,
+
 Default: 'excel'
 
 Excel's name, whose suffix is `.xlsx`.
 
 `opts.formateDate`
+
 Type: `String`,
+
 Default: 'dd/mm/yyyy'
 
 The date formate in rows' data. Examples:
@@ -185,23 +193,26 @@ The date formate in rows' data. Examples:
 Convert excel(.xlsx/.xls) to json.
 
 **files**
+
 Type: `Array`
 
 [FileList](https://developer.mozilla.org/en-US/docs/Web/API/FileList) from `<input type='file' multiple="false" >`.
 
 **cb**
+
 Type: `Function`
 
 Callback function called on finish.
 
 **defval**
+
 Type: `String`
 
 The default value when the row data corresponding to the column is blank.
 
 ## Supported browsers
-[FileSaver#supported-browsers](https://github.com/eligrey/FileSaver.js#supported-browsers)
-[FileReader](https://caniuse.com/#search=FileReader)
+* [FileSaver#supported-browsers](https://github.com/eligrey/FileSaver.js#supported-browsers)
+* [FileReader](https://caniuse.com/#search=FileReader)
 
 ## License
 MIT
