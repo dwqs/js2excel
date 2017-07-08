@@ -107,7 +107,7 @@ import(/* webpackChunkName: "js2excel" */ 'js2excel').then(({json2excel}) => {
 ```
 Exports result as the image shows:
 
-![user-data](https://sfault-image.b0.upaiyun.com/187/610/1876104695-5960eaee85790_articlex)
+![user-data](https://sfault-image.b0.upaiyun.com/122/505/1225057000-5960fb885c904_articlex)
 
 ### Convert excel to json
 ```
