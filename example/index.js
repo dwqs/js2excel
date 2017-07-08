@@ -1,10 +1,11 @@
 'use strict';
 
-import js2excel from '../src/index.ts';
+import {excel2json, json2excel} from '../src/index.ts';
 
 let btn = document.getElementById('export');
+let upload = document.getElementById('sheetjs-input');
 
-let columns = [
+let headers = [
     {
         name: 'User Id',
         prop: 'userId',
@@ -29,7 +30,7 @@ let rows = [
         userId: 1,
         userPhoneNumber: 1888888888,
         userAddress: 'xxxx',
-        date: '2012/09/08'
+        date: '2012/09/08'   // string
     },
     {
         userId: 2,
@@ -47,8 +48,25 @@ let rows = [
 
 btn.addEventListener('click', () => {
     try {
-        js2excel(columns, rows, 'user-info-data');
+        json2excel({
+            headers,
+            rows,
+            name: 'user-info-data',
+            formateDate: 'yyyy/mm/dd'
+        });
     } catch (e) {
         console.error('export error', e.stack);
     }
 }, false);
+
+upload.addEventListener('change', (e) => {
+    console.log('ddd', e.target.files);
+
+    try {
+        excel2json(e.target.files, (data) => {
+            console.log('parse data: ', data);
+        }, 'test');
+    } catch (e) {
+        console.error('parse error', e.stack);
+    }
+});

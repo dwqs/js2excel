@@ -4,97 +4,6 @@ import * as XLSX from 'xlsx';
 import formatDataToExcel from './formate-data';
 import IWorkBook from './work-book';
 
-// function dateNum(v: any, date1904?: any) {
-//     if (date1904) {
-//         v += 1462;
-//     }
-
-//     const epoch = Date.parse(v as string);
-// 	const d: any = new Date(Date.UTC(1899, 11, 30));
-
-//     return (epoch - d) / (24 * 60 * 60 * 1000);
-// }
-
-// interface Cell {
-// 	v: any,
-// 	t?: string,
-// 	z?: any
-// }
-
-// interface DateDF {
-//     // dateFormat: /[dD]+|[mM]+|[yYeE]+|[Hh]+|[Ss]+/g;
-//     dateNF: string
-// }
-
-// function sheetFromArrayOfArrays(data: any[], opts?: DateDF) {
-//     const ws = {};
-//     const range = {
-// 		e: {
-//             c: 0,
-//             r: 0,
-//         },
-//         s: {
-//             c: 10000000,
-//             r: 10000000,
-//         },
-//     };
-
-//     for (let R = 0; R !== data.length; ++R) {
-//         for (let C = 0; C !== data[R].length; ++C) {
-//             if (range.s.r > R) {
-//                 range.s.r = R;
-//             }
-
-//             if (range.s.c > C) {
-//                 range.s.c = C;
-//             }
-
-//             if (range.e.r < R) {
-//                 range.e.r = R;
-//             }
-
-//             if (range.e.c < C) {
-//                 range.e.c = C;
-//             }
-
-//             const cell: Cell = {
-// 				// The raw value of the cell
-// 				// 单元格的值
-//                 v: data[R][C],
-//             };
-
-//             if (cell.v === null) {
-//                 continue;
-//             }
-
-//             const cellRef = XLSX.utils.encode_cell({ c: C, r: R });
-
-// 			// The Excel Data Type of the cell
-// 			// b Boolean, n Number, e error, s String, d Date
-//             if (typeof cell.v === 'number') {
-//                 cell.t = 'n';
-//             } else if (typeof cell.v === 'boolean') {
-//                 cell.t = 'b';
-//             } else if (cell.v instanceof Date) {
-//                 cell.t = 'n';
-// 				// xlsx dosen't declare SSF type in index.d.ts.
-// 				cell.z = opts.dateNF;
-//                 cell.v = dateNum(cell.v);
-//             } else {
-//                 cell.t = 's';
-//             }
-
-//             ws[cellRef] = cell;
-//         }
-//     }
-
-//     if (range.s.c < 10000000) {
-//         ws['!ref'] = XLSX.utils.encode_range(range);
-//     }
-
-//     return ws;
-// }
-
 interface Params {
     headers: any[],
     rows: any[],
@@ -117,7 +26,7 @@ function s2ab(s: string) {
 // 直接传递对象数据有可能导致浏览器卡死, 建议传二维数组或多维数据
 // passing object directly will lead browser dead,
 // so just pass dimensional array or multiple dimensional array.
-export function js2excel(opts: Params) {
+export function json2excel(opts: Params) {
     let { headers = [], rows = [], name = 'excel', formateDate = 'dd/mm/yyyy'} = opts;
     const data = formatDataToExcel(headers, rows);
 
@@ -137,4 +46,41 @@ export function js2excel(opts: Params) {
     // https://github.com/eligrey/FileSaver.js
     // An HTML5 Blob implementation: https://github.com/eligrey/Blob.js
     FileSaver.saveAs(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }), name + '.xlsx');
+}
+
+type CallBack = (data: any) => any;
+
+export function excel2json(files: File[], cb: CallBack, defval = ''): any {
+    // https://caniuse.com/#search=FileReader
+    let reader = new FileReader();
+
+    if (!files || files.length === 0) {
+        return;
+    }
+    let file = files[0];
+
+    reader.onload = (e: any) => {
+        // pre-process data
+        let binary = '';
+        let bytes = new Uint8Array(e.target.result);
+        let length = bytes.byteLength;
+
+        for (let i = 0; i < length; i++) {
+            binary += String.fromCharCode(bytes[i]);
+        }
+
+        // read workbook
+        let wb = XLSX.read(binary, {type: 'binary'});
+
+        let res = {};
+
+        for (let name of wb.SheetNames) {
+            let ws = wb.Sheets[name];
+            res[name] = XLSX.utils.sheet_to_json(ws, {defval});
+        }
+        
+        cb(res);
+    };
+
+    reader.readAsArrayBuffer(file);
 }
