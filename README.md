@@ -136,11 +136,11 @@ onchange(e) {
 ```
 Example, if you hava a excel as following:
 
-![excel](https://sfault-image.b0.upaiyun.com/251/190/2511902148-5960f847bcf7b_articlex)
+![excel](https://sfault-image.b0.upaiyun.com/411/420/4114209136-5960fa90e8e6d_articlex)
 
 The data maybe as following:
 
-![data](https://sfault-image.b0.upaiyun.com/329/416/3294164883-5960f90944d21_articlex)
+![data](https://sfault-image.b0.upaiyun.com/314/083/3140838997-5960fabf7c7b0_articlex)
 
 ## API
 
