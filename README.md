@@ -33,35 +33,8 @@ import {json2excel, excel2json} from 'js2excel';
 //CommonJS
 let { json2excel, excel2json } = require('js2excel');
 
-/**
- * excel's data
- **/
-
-// excel's columns's header 
-let headers = [
-    {
-        // the name will be as the excel column name
-        name: 'User Id', 
-        // the prop will be as the excel row data, which is the rows' item's property.
-        prop: 'userId'     
-    },
-    {
-        name: 'Phone Number',
-        prop: 'userPhoneNumber'
-    },
-    {
-        name: 'User Address',
-        prop: 'userAddress'
-    },
-    {
-        name: 'Date',
-        prop: 'date'
-    }
-];
-
-// excel rows' data
-// rows' data will be exports, which you probably get it from server.
-let rows = [
+// excel's data will be exports, which you probably get it from server.
+let data = [
     {
         "userId": 1,
         "userPhoneNumber": 1888888888,
@@ -86,7 +59,7 @@ let rows = [
 // the default file's name is excel.xlsx
 try {
     json2excel({
-        headers, rows, 
+        data
         name: 'user-info-data',
         formateDate: 'yyyy/mm/dd'
     });
@@ -97,8 +70,8 @@ try {
 // for webpack 3: dynamic import
 import(/* webpackChunkName: "js2excel" */ 'js2excel').then(({json2excel}) => {
     json2excel({
-        headers, rows, 
-        name: 'user-info-data',
+        data
+        name: 'test',
         formateDate: 'dd/mm/yyyy'
     });
 }).catch((e) => {
@@ -107,7 +80,7 @@ import(/* webpackChunkName: "js2excel" */ 'js2excel').then(({json2excel}) => {
 ```
 Exports result as the image shows:
 
-![user-data](https://sfault-image.b0.upaiyun.com/122/505/1225057000-5960fb885c904_articlex)
+![test-data](https://sfault-image.b0.upaiyun.com/148/574/1485742647-5961130140811_articlex)
 
 ### Convert excel to json
 ```
@@ -150,21 +123,13 @@ Convert json to excel(.xlsx).
 **opts**
 Type: `Object`
 
-`opts.headers`
-
-Type: `Array`
-
-Default: []
-
-Excel's column's headers.
-
-`opts.rows`
+`opts.data`
 
 Type: `Array`,
 
 Default: []
 
-Excel's rows's data.
+Excel's  data.
 
 `opts.name`
 
