@@ -1,6 +1,5 @@
 export interface Params {
-    headers: any[];
-    rows: any[];
+    data: any[];
     name?: string;
     formateDate?: string;
 }

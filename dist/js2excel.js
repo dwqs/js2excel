@@ -33711,37 +33711,6 @@ var xlsx_1 = xlsx.utils;
 var xlsx_2 = xlsx.write;
 var xlsx_3 = xlsx.read;
 
-function assert(condition, message) {
-    if (!condition) {
-        throw new Error("[js2excel] " + message + " Read doc: https://github.com/dwqs/js2excel#readme");
-    }
-}
-
-function formatDataToExcel(headers, rows) {
-    var tHeader = [];
-    var indexs = [];
-    var data = [];
-    if (headers.length) {
-        headers.forEach(function (item) {
-            if (item.hasOwnProperty && item.hasOwnProperty('name') && item.hasOwnProperty('prop')) {
-                tHeader.push(item.name);
-                indexs.push(item.prop);
-            } else {
-                assert(false, "The params you passed is illegal.");
-            }
-        });
-    }
-    if (rows.length) {
-        data = rows.map(function (item) {
-            return indexs.map(function (index) {
-                return item[index];
-            });
-        });
-    }
-    data.unshift(tHeader);
-    return data;
-}
-
 var IWorkBook = function () {
     function IWorkBook(sheetNames, sheets) {
         this.sheetNames = sheetNames;
@@ -33761,15 +33730,12 @@ function s2ab(s) {
     return buf;
 }
 function json2excel(opts) {
-    var _a = opts.headers,
-        headers = _a === void 0 ? [] : _a,
-        _b = opts.rows,
-        rows = _b === void 0 ? [] : _b,
-        _c = opts.name,
-        name = _c === void 0 ? 'excel' : _c,
-        _d = opts.formateDate,
-        formateDate = _d === void 0 ? 'dd/mm/yyyy' : _d;
-    var data = formatDataToExcel(headers, rows);
+    var _a = opts.data,
+        data = _a === void 0 ? [] : _a,
+        _b = opts.name,
+        name = _b === void 0 ? 'excel' : _b,
+        _c = opts.formateDate,
+        formateDate = _c === void 0 ? 'dd/mm/yyyy' : _c;
     var fileNames = [];
     var sheets = {};
     var ws = xlsx_1.json_to_sheet(data, { dateNF: formateDate });
