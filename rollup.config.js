@@ -21,7 +21,7 @@ export default {
         }),
         commonjs({
             namedExports: {
-                'node_modules/xlsx/xlsx.js': ['utils', 'write']
+                'node_modules/xlsx/xlsx.js': ['utils', 'write', 'read']
             }
         }),
         typescript(),

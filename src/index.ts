@@ -4,13 +4,15 @@ import * as XLSX from 'xlsx';
 import formatDataToExcel from './formate-data';
 import IWorkBook from './work-book';
 
-interface Params {
+export interface Params {
     headers: any[],
     rows: any[],
     name?: string,
     // dateFormat: /[dD]+|[mM]+|[yYeE]+|[Hh]+|[Ss]+/g;
     formateDate?: string 
 }
+
+export type CallBack = (data: any) => any;
 
 function s2ab(s: string) {
     const buf = new ArrayBuffer(s.length);
@@ -26,7 +28,7 @@ function s2ab(s: string) {
 // 直接传递对象数据有可能导致浏览器卡死, 建议传二维数组或多维数据
 // passing object directly will lead browser dead,
 // so just pass dimensional array or multiple dimensional array.
-export function json2excel(opts: Params) {
+function json2excel(opts: Params) {
     let { headers = [], rows = [], name = 'excel', formateDate = 'dd/mm/yyyy'} = opts;
     const data = formatDataToExcel(headers, rows);
 
@@ -48,9 +50,7 @@ export function json2excel(opts: Params) {
     FileSaver.saveAs(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }), name + '.xlsx');
 }
 
-type CallBack = (data: any) => any;
-
-export function excel2json(files: File[], cb: CallBack, defval = ''): any {
+function excel2json(files: File[], cb: CallBack, defval = ''): any {
     // https://caniuse.com/#search=FileReader
     let reader = new FileReader();
 
@@ -84,3 +84,10 @@ export function excel2json(files: File[], cb: CallBack, defval = ''): any {
 
     reader.readAsArrayBuffer(file);
 }
+
+const js2excel = {
+    excel2json,
+    json2excel, 
+};
+
+export default js2excel;

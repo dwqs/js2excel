@@ -1,6 +1,8 @@
 'use strict';
 
-import {excel2json, json2excel} from '../src/index.ts';
+import js2excel from '../src/index.ts';
+
+console.log('3333', js2excel)
 
 let btn = document.getElementById('export');
 let upload = document.getElementById('sheetjs-input');
