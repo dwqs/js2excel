@@ -32,7 +32,12 @@ interface Cell {
 	z?: any
 }
 
-function sheetFromArrayOfArrays(data: any[], opts?: any) {
+interface DateDF {
+    // dateFormat: /[dD]+|[mM]+|[yYeE]+|[Hh]+|[Ss]+/g;
+    dateNF: string
+}
+
+function sheetFromArrayOfArrays(data: any[], opts?: DateDF) {
     const ws = {};
     const range = {
 		e: {
@@ -84,8 +89,7 @@ function sheetFromArrayOfArrays(data: any[], opts?: any) {
             } else if (cell.v instanceof Date) {
                 cell.t = 'n';
 				// xlsx dosen't declare SSF type in index.d.ts.
-                // cell.z =  XLSX.SSF._table[14];
-				cell.z = 'm/d/yy';
+				cell.z = opts.dateNF;
                 cell.v = dateNum(cell.v);
             } else {
                 cell.t = 's';
@@ -105,13 +109,13 @@ function sheetFromArrayOfArrays(data: any[], opts?: any) {
 // 直接传递对象数据有可能导致浏览器卡死, 建议传二维数组或多维数据
 // passing object directly will lead browser dead,
 // so just pass dimensional array or multiple dimensional array.
-export default function js2excel(tHeaderColumns: any[], tableData: any[], fileName = 'excel') {
+export default function js2excel(tHeaderColumns: any[], tableData: any[], fileName = 'excel', dateNF = 'yyyy/mm/dd') {
     const data = formatDataToExcel(tHeaderColumns, tableData);
 
 	let fileNames: string[] = [];
 	let sheets = {};
 
-	const ws = sheetFromArrayOfArrays(Array.isArray(data) ? data : []);
+	const ws = sheetFromArrayOfArrays(Array.isArray(data) ? data : [], { dateNF });
 
 	// add worksheet to workbook
 	fileNames.push(fileName);
