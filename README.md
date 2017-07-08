@@ -189,7 +189,7 @@ The date formate in rows' data. Examples:
 'yyyy/mm/dd hh:ss' => 2017/07/17 18:29
 ```
 
-### excel2json(files, cb, [defval])
+### excel2json(files, cb(data), [defval])
 Convert excel(.xlsx/.xls) to json.
 
 **files**
@@ -198,11 +198,18 @@ Type: `Array`
 
 [FileList](https://developer.mozilla.org/en-US/docs/Web/API/FileList) from `<input type='file' multiple="false" >`.
 
-**cb**
+**cb(data)**
 
 Type: `Function`
 
-Callback function called on finish.
+Callback function called on finish. The `data` maybe as following:
+
+```
+{
+    'sheet1': [/** excel rows' data **/],
+    'sheet2': [/** excel rows' data **/]
+}
+```
 
 **defval**
 
