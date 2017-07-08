@@ -2,13 +2,13 @@ import assert from './assert';
 
 // 将数据转成成数组的形式用于导出Excel
 // converted data into an array to export Excel
-export default function formatDataToExcel<T>(columns: T[], rows: T[]): T[] {
+export default function formatDataToExcel<T>(headers: T[], rows: T[]): T[] {
     const tHeader: any[] = [];
     const indexs: any[] = [];
     let data: any[] = [];
 
-    if (columns.length) {
-        columns.forEach((item: any) => {
+    if (headers.length) {
+        headers.forEach((item: any) => {
             if (item.hasOwnProperty && item.hasOwnProperty('name') && item.hasOwnProperty('prop')) {
                 // excel columns header
                 tHeader.push(item.name);
