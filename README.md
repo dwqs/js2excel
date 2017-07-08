@@ -205,9 +205,12 @@ Type: `Function`
 Callback function called on finish. The `data` maybe as following:
 
 ```
-{
+{   
+    `${sheetName}`: `[${excelRowsData}]`
     'sheet1': [/** excel rows' data **/],
-    'sheet2': [/** excel rows' data **/]
+    'sheet2': [/** excel rows' data **/],
+    'sheet3': [/** excel rows' data **/]
+    ...
 }
 ```
 
