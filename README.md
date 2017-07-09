@@ -82,12 +82,12 @@ Exports result as the image shows:
 
 ![test-data](https://sfault-image.b0.upaiyun.com/148/574/1485742647-5961130140811_articlex)
 
-### Convert excel to json
+### Convert excel(.numbers/.xlsx/.xls) to json
 ```
 import { excel2json } from 'js2excel';
 
 // html
-<input type="file" multiple="false" id="sheets" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" @change="onchange" />
+<input type="file" multiple="false" id="sheets" accept="application/x-iwork-keynote-sffnumbers,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" @change="onchange" />
 
 // methods
 onchange(e){
@@ -155,7 +155,7 @@ The date formate in rows' data. Examples:
 ```
 
 ### excel2json(files, cb(data), [defval])
-Convert excel(.xlsx/.xls) to json.
+Convert excel(.numbers/.xlsx/.xls) to json.
 
 **files**
 
