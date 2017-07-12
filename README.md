@@ -1,9 +1,4 @@
-![download](https://img.shields.io/npm/dt/js2excel.svg)  
-![dep](https://img.shields.io/david/dwqs/js2excel.svg)
-![license](https://img.shields.io/npm/l/js2excel.svg)
-![bower-license](https://img.shields.io/bower/l/js2excel.svg)
-![npm-version](https://img.shields.io/npm/v/js2excel.svg) 
-![bower-version](https://img.shields.io/bower/v/js2excel.svg)
+![download](https://img.shields.io/npm/dt/js2excel.svg)  ![dep](https://img.shields.io/david/dwqs/js2excel.svg)  ![license](https://img.shields.io/npm/l/js2excel.svg)  ![bower-license](https://img.shields.io/bower/l/js2excel.svg)  ![npm-version](https://img.shields.io/npm/v/js2excel.svg) 
 
 ## js2excel
 A simple module for excel and json converts each other.
