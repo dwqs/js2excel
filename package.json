@@ -1,6 +1,6 @@
 {
   "name": "js2excel",
-  "version": "0.7.9",
+  "version": "1.0.0",
   "author": "pomysky@gmail.com",
   "description": "A simple module for excel and json converts each other",
   "license": "MIT",
