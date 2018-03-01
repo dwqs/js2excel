@@ -33729,6 +33729,21 @@ function s2ab(s) {
     }
     return buf;
 }
+function convert(csv) {
+    var lines = csv.split('\n');
+    var result = [];
+    var headers = lines[0].split(',');
+    lines.splice(0, 1);
+    lines.forEach(function (line) {
+        var obj = {};
+        var currentline = line.split(',');
+        headers.forEach(function (header, i) {
+            obj[header] = currentline[i];
+        });
+        result.push(obj);
+    });
+    return result;
+}
 function json2excel(opts) {
     var _a = opts.data,
         data = _a === void 0 ? [] : _a,
@@ -33754,6 +33769,9 @@ function excel2json(files, cb, defval) {
         return;
     }
     var file = files[0];
+    reader.onerror = function (err) {
+        console.error('File read error: ', err);
+    };
     reader.onload = function (e) {
         var binary = '';
         var bytes = new Uint8Array(e.target.result);
@@ -33768,13 +33786,36 @@ function excel2json(files, cb, defval) {
             var ws = wb.Sheets[name];
             res[name] = xlsx_1.sheet_to_json(ws, { defval: defval });
         }
-        cb(res);
+        if (typeof cb === 'function') {
+            cb(res);
+        }
     };
     reader.readAsArrayBuffer(file);
 }
+function csv2json(files, cb, encode) {
+    if (encode === void 0) {
+        encode = 'UTF-8';
+    }
+    var reader = new FileReader();
+    if (!files || files.length === 0) {
+        return;
+    }
+    var file = files[0];
+    reader.onerror = function (err) {
+        console.error('File read error: ', err);
+    };
+    reader.onload = function (e) {
+        var text = e.target.result;
+        if (typeof cb === 'function') {
+            cb(convert(text));
+        }
+    };
+    reader.readAsText(file, encode);
+}
 var js2excel = {
     excel2json: excel2json,
-    json2excel: json2excel
+    json2excel: json2excel,
+    csv2json: csv2json
 };
 
 return js2excel;
