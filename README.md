@@ -135,16 +135,14 @@ Excel's  data.
 
 `opts.name`
 
-Type: `String`,
-
+Type: `String`<br/>
 Default: `excel`
 
 Excel's name, whose suffix is `.xlsx`.
 
 `opts.formateDate`
 
-Type: `String`,
-
+Type: `String` <br/>
 Default: `dd/mm/yyyy`
 
 The date formate in rows' data. Examples:
@@ -183,7 +181,7 @@ Callback function called on finish. The `data` maybe as following:
 
 **defval**
 
-Type: `String`
+Type: `String`<br/>
 Default: `''`
 
 The default value when the row data corresponding to the column is blank.
