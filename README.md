@@ -129,7 +129,7 @@ Type: `Object`
 
 Type: `Array`,
 
-Default: []
+Default: `[]`
 
 Excel's  data.
 
@@ -137,7 +137,7 @@ Excel's  data.
 
 Type: `String`,
 
-Default: 'excel'
+Default: `excel`
 
 Excel's name, whose suffix is `.xlsx`.
 
@@ -145,7 +145,7 @@ Excel's name, whose suffix is `.xlsx`.
 
 Type: `String`,
 
-Default: 'dd/mm/yyyy'
+Default: `dd/mm/yyyy`
 
 The date formate in rows' data. Examples:
 
@@ -184,6 +184,7 @@ Callback function called on finish. The `data` maybe as following:
 **defval**
 
 Type: `String`
+Default: `''`
 
 The default value when the row data corresponding to the column is blank.
 
