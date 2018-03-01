@@ -127,8 +127,7 @@ Type: `Object`
 
 `opts.data`
 
-Type: `Array`,
-
+Type: `Array`<br/>
 Default: `[]`
 
 Excel's  data.
