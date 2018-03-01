@@ -1,4 +1,4 @@
-![download](https://img.shields.io/npm/dt/js2excel.svg) ![dep](https://img.shields.io/david/dwqs/js2excel.svg) ![npm-version](https://img.shields.io/npm/v/js2excel.svg) ![license](https://img.shields.io/npm/l/js2excel.svg) ![bower-license](https://img.shields.io/bower/l/js2excel.svg)
+![download](https://img.shields.io/npm/dt/js2excel.svg) ![npm-version](https://img.shields.io/npm/v/js2excel.svg) ![license](https://img.shields.io/npm/l/js2excel.svg) ![bower-license](https://img.shields.io/bower/l/js2excel.svg)
 
 ## js2excel
 A simple module for excel and json converts each other.
@@ -127,25 +127,22 @@ Type: `Object`
 
 `opts.data`
 
-Type: `Array`,
-
-Default: []
+Type: `Array`<br/>
+Default: `[]`
 
 Excel's  data.
 
 `opts.name`
 
-Type: `String`,
-
-Default: 'excel'
+Type: `String`<br/>
+Default: `excel`
 
 Excel's name, whose suffix is `.xlsx`.
 
 `opts.formateDate`
 
-Type: `String`,
-
-Default: 'dd/mm/yyyy'
+Type: `String` <br/>
+Default: `dd/mm/yyyy`
 
 The date formate in rows' data. Examples:
 
@@ -183,7 +180,8 @@ Callback function called on finish. The `data` maybe as following:
 
 **defval**
 
-Type: `String`
+Type: `String`<br/>
+Default: `''`
 
 The default value when the row data corresponding to the column is blank.
 
@@ -204,7 +202,7 @@ Callback function called on finish.
 
 **encode**
 
-Type: `String`
+Type: `String`<br/>
 Default: `UTF-8`
 
 The default encode when reading file.
