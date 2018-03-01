@@ -7,5 +7,6 @@ export declare type CallBack = (data: any) => any;
 declare const js2excel: {
     excel2json: (files: File[], cb: CallBack, defval?: string) => any;
     json2excel: (opts: Params) => void;
+    csv2json: (files: File[], cb: CallBack, encode?: string) => any;
 };
 export default js2excel;
