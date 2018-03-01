@@ -23,6 +23,24 @@ function s2ab(s: string) {
     return buf;
 }
 
+function convert(csv: any): any {
+    const lines = csv.split('\n');
+    const result: any[] = [];
+    const headers = lines[0].split(',');
+    lines.splice(0, 1);
+
+    lines.forEach((line: any) => {
+        const obj = {};
+        const currentline = line.split(',');
+        headers.forEach((header: any, i: any) => {
+            obj[header] = currentline[i];
+        });
+        result.push(obj);
+    });
+
+    return result;
+}
+
 // 直接传递对象数据有可能导致浏览器卡死, 建议传二维数组或多维数据
 // passing object directly will lead browser dead,
 // so just pass dimensional array or multiple dimensional array.
@@ -56,6 +74,10 @@ function excel2json(files: File[], cb: CallBack, defval = ''): any {
     }
     let file = files[0];
 
+    reader.onerror = (err: any) => {
+        console.error('File read error: ', err);
+    };
+
     reader.onload = (e: any) => {
         // pre-process data
         let binary = '';
@@ -76,15 +98,40 @@ function excel2json(files: File[], cb: CallBack, defval = ''): any {
             res[name] = XLSX.utils.sheet_to_json(ws, {defval});
         }
         
-        cb(res);
+        if (typeof cb === 'function') {
+            cb(res);
+        }
     };
 
     reader.readAsArrayBuffer(file);
 }
 
+function csv2json(files: File[], cb: CallBack, encode = 'UTF-8'): any {
+    let reader = new FileReader();
+
+    if (!files || files.length === 0) {
+        return;
+    }
+    let file = files[0];
+
+    reader.onerror = (err: any) => {
+        console.error('File read error: ', err);
+    };
+
+    reader.onload = (e: any) => {
+        const text = e.target.result;
+        if (typeof cb === 'function') {
+            cb(convert(text));
+        }
+    };
+
+    reader.readAsText(file, encode);
+}
+
 const js2excel = {
     excel2json,
     json2excel, 
+    csv2json,
 };
 
 export default js2excel;
