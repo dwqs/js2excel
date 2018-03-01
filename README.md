@@ -187,6 +187,28 @@ Type: `String`
 
 The default value when the row data corresponding to the column is blank.
 
+### csv2json(files, cb(data), [encode])
+Convert CSV file to json.
+
+**files**
+
+Type: `Array`
+
+[FileList](https://developer.mozilla.org/en-US/docs/Web/API/FileList) from `<input type='file' multiple="false" >`.
+
+**cb(data)**
+
+Type: `Function`
+
+Callback function called on finish.
+
+**encode**
+
+Type: `String`
+Default: `UTF-8`
+
+The default encode when reading file.
+
 ## Supported browsers
 * [FileSaver#supported-browsers](https://github.com/eligrey/FileSaver.js#supported-browsers)
 * [FileReader](https://caniuse.com/#search=FileReader)
