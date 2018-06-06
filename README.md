@@ -61,7 +61,7 @@ let data = [
 // the default file's name is excel.xlsx
 try {
     json2excel({
-        data
+        data,
         name: 'user-info-data',
         formateDate: 'yyyy/mm/dd'
     });
@@ -72,7 +72,7 @@ try {
 // for webpack 3: dynamic import
 import(/* webpackChunkName: "js2excel" */ 'js2excel').then(({json2excel}) => {
     json2excel({
-        data
+        data,
         name: 'test',
         formateDate: 'dd/mm/yyyy'
     });
