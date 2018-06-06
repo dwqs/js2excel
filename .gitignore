@@ -11,3 +11,4 @@ yarn-error.log*
 lib
 example
 webpack.example.config.js
+package-lock.json
