@@ -23,15 +23,15 @@ function s2ab(s: string) {
     return buf;
 }
 
-function convert(csv: any): any {
+function convert(csv: any, separator: string): any {
     const lines = csv.split('\n');
     const result: any[] = [];
-    const headers = lines[0].split(',');
+    const headers = lines[0].split(separator);
     lines.splice(0, 1);
 
     lines.forEach((line: any) => {
         const obj = {};
-        const currentline = line.split(',');
+        const currentline = line.split(separator);
         headers.forEach((header: any, i: any) => {
             obj[header] = currentline[i];
         });
@@ -106,7 +106,7 @@ function excel2json(files: File[], cb: CallBack, defval = ''): any {
     reader.readAsArrayBuffer(file);
 }
 
-function csv2json(files: File[], cb: CallBack, encode = 'UTF-8'): any {
+function csv2json(files: File[], cb: CallBack, encode = 'UTF-8', separator: string = ','): any {
     let reader = new FileReader();
 
     if (!files || files.length === 0) {
@@ -121,7 +121,7 @@ function csv2json(files: File[], cb: CallBack, encode = 'UTF-8'): any {
     reader.onload = (e: any) => {
         const text = e.target.result;
         if (typeof cb === 'function') {
-            cb(convert(text));
+            cb(convert(text, separator));
         }
     };
 
