@@ -54,9 +54,8 @@ function jsonSheets2excel(opts: SheetParams) {
     let sheetNames: string[] = [];
     let sheets = {};
 
-    Object.keys( data ).map( (d) => {
-        let sheet = data[d];
-        let sheetName = d;
+    Object.keys( data ).map( (sheetName) => {
+        let sheet = data[sheetName];
         const ws = XLSX.utils.json_to_sheet(sheet, { dateNF: formateDate});
 
         // add worksheet to workbook

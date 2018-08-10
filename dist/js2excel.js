@@ -33903,16 +33903,15 @@ function jsonSheets2excel(opts) {
         name = _b === void 0 ? 'excel' : _b,
         _c = opts.formateDate,
         formateDate = _c === void 0 ? 'dd/mm/yyyy' : _c;
-    var fileNames = [];
+    var sheetNames = [];
     var sheets = {};
-    Object.keys(data).map(function (d) {
-        var sheet = data[d];
-        var sheetName = d;
+    Object.keys(data).map(function (sheetName) {
+        var sheet = data[sheetName];
         var ws = xlsx_1.json_to_sheet(sheet, { dateNF: formateDate });
-        fileNames.push(sheetName);
+        sheetNames.push(sheetName);
         sheets[sheetName] = ws;
     });
-    var wb = new IWorkBook(fileNames, sheets);
+    var wb = new IWorkBook(sheetNames, sheets);
     var wbout = xlsx_2(wb, { bookType: 'xlsx', bookSST: true, type: 'binary' });
     FileSaver_1(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }), name + '.xlsx');
 }
