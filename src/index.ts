@@ -10,6 +10,13 @@ export interface Params {
     formateDate?: string 
 }
 
+export interface SheetParams {
+    data: {},
+    name?: string,
+    // dateFormat: /[dD]+|[mM]+|[yYeE]+|[Hh]+|[Ss]+/g;
+    formateDate?: string 
+}
+
 export type CallBack = (data: any) => any;
 
 function s2ab(s: string) {
@@ -39,6 +46,33 @@ function convert(csv: any, separator: string): any {
     });
 
     return result;
+}
+
+function jsonSheets2excel(opts: SheetParams) {
+    let { data = {}, name = 'excel', formateDate = 'dd/mm/yyyy'} = opts;
+
+    let fileNames: string[] = [];
+    let sheets = {};
+
+    Object.keys( data ).map( (d) => {
+        let sheet = data[d];
+        let sheetName = d;
+        const ws = XLSX.utils.json_to_sheet(sheet, { dateNF: formateDate});
+
+        // add worksheet to workbook
+        fileNames.push(sheetName);
+        sheets[sheetName] = ws;
+    });
+
+    
+
+    const wb = new IWorkBook(fileNames, sheets);
+    
+    const wbout = XLSX.write(wb, { bookType: 'xlsx', bookSST: true, type: 'binary' });
+
+    // https://github.com/eligrey/FileSaver.js
+    // An HTML5 Blob implementation: https://github.com/eligrey/Blob.js
+    FileSaver.saveAs(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }), name + '.xlsx');
 }
 
 // 直接传递对象数据有可能导致浏览器卡死, 建议传二维数组或多维数据
@@ -131,6 +165,7 @@ function csv2json(files: File[], cb: CallBack, encode = 'UTF-8', separator: stri
 const js2excel = {
     excel2json,
     json2excel, 
+    jsonSheets2excel,
     csv2json,
 };
 
