@@ -51,7 +51,7 @@ function convert(csv: any, separator: string): any {
 function jsonSheets2excel(opts: SheetParams) {
     let { data = {}, name = 'excel', formateDate = 'dd/mm/yyyy'} = opts;
 
-    let fileNames: string[] = [];
+    let sheetNames: string[] = [];
     let sheets = {};
 
     Object.keys( data ).map( (d) => {
@@ -60,13 +60,13 @@ function jsonSheets2excel(opts: SheetParams) {
         const ws = XLSX.utils.json_to_sheet(sheet, { dateNF: formateDate});
 
         // add worksheet to workbook
-        fileNames.push(sheetName);
+        sheetNames.push(sheetName);
         sheets[sheetName] = ws;
     });
 
     
 
-    const wb = new IWorkBook(fileNames, sheets);
+    const wb = new IWorkBook(sheetNames, sheets);
     
     const wbout = XLSX.write(wb, { bookType: 'xlsx', bookSST: true, type: 'binary' });
 
