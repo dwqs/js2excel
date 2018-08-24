@@ -12,4 +12,9 @@ declare const js2excel: {
     json2excel: typeof json2excel;
     csv2json: typeof csv2json;
 };
+export {
+  json2excel,
+  excel2json,
+  csv2json
+};
 export default js2excel;
